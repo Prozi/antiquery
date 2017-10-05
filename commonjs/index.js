@@ -1,4 +1,4 @@
-export default function $(selector) {
+exports.default = function $(selector) {
   const divs = typeof selector === 'string' ?
     Array.prototype.slice.call(document.querySelectorAll(selector)) :
     Array.isArray(selector) ? (selector ? selector : []) : [selector]
