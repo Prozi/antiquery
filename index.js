@@ -10,12 +10,11 @@ export default function $(selector) {
     remove: () => divs.forEach((el) => el.parentElement.removeChild(el)),
     addClass: (className) => each((el) => { if (el) el.classList.add(className); return el }),
     removeClass: (className) => each((el) => { if (el) el.classList.remove(className); return el }),
-    animate: (animation, duration = 250) => {
-      wrap((el) => {
-        api.addClass(animation)
-        setTimeout(() => api.removeClass(animation), duration)
-      })
-    },
+    animate: (animation, duration = 250) => each((el) => {
+      api.addClass(animation)
+      setTimeout(() => api.removeClass(animation), duration)
+      return el
+    }),
     hide: () => each((el) => { if (el) el.style.display = 'none'; return el }),
     show: () => each((el) => { if (el) el.style.display = null; return el }),
     each
