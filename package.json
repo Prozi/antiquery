@@ -1,0 +1,20 @@
+{
+  "name": "antiquery",
+  "version": "1.0.0",
+  "description": "a *very* slim package for basic DOM operations - few bytes",
+  "main": "index.js",
+  "scripts": {
+    "test": "killall node"
+  },
+  "repository": {
+    "type": "git",
+    "url": "todo"
+  },
+  "keywords": [
+    "query",
+    "querySelector",
+    "querySelectorAll"
+  ],
+  "author": "Jacek Pietal (prozi85@gmail.com)",
+  "license": "MIT"
+}
