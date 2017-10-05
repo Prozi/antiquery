@@ -16,8 +16,8 @@ export default function $(selector) {
         setTimeout(() => api.removeClass(animation), duration)
       })
     },
-    hide: () => wrap((el) => { el && el.style.display = 'none'; return el }),
-    show: () => wrap((el) => { el && el.style.display = null; return el }),
+    hide: () => divs.map((el) => { if (el) el.style.display = 'none'; return el }),
+    show: () => divs.map((el) => { if (el) el.style.display = null; return el }),
     each: wrap
   }
   divs.forEach((el, i) => api[i] = el)
