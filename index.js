@@ -18,7 +18,7 @@ export class AntiQuery {
     return this.each((el) => el.children.map($))
   },
   find (what) {
-    return this.each((el) => $(what)),
+    return this.each((el) => $(what))
   },
   remove () {
     this.elements.forEach((el) => el.parentElement.removeChild(el))
