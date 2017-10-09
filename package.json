@@ -1,6 +1,6 @@
 {
   "name": "antiquery",
-  "version": "1.1.3",
+  "version": "1.2.1",
   "description": "a *very* slim package for basic DOM operations - few bytes",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "todo"
+    "url": "https://github.com/Prozi/antiquery.git"
   },
   "keywords": [
     "query",
