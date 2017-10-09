@@ -23,6 +23,10 @@ for older javascript use:
 const $ = require('antiquery/commonjs').default
 ```
 
+for browser download browser/index.js and then just include as script src
+
+...
+
 then you can use like
 
 ```javascript

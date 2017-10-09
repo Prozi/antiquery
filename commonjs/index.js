@@ -8,10 +8,10 @@ AntiQuery.prototype = {
   get (index) {
     if (typeof index !== 'undefined') return this.elements[index]
     return this.elements
-  }
+  },
   each (fn) {
     return this.elements.map.apply(this, fn)
-  }
+  },
   parents () {
     return this.each((el) => $(el.parentElement))
   },
@@ -20,7 +20,7 @@ AntiQuery.prototype = {
   },
   find (what) {
     return this.each((el) => $(what)),
-  }
+  },
   remove () {
     this.elements.forEach((el) => el.parentElement.removeChild(el))
   },
@@ -28,7 +28,7 @@ AntiQuery.prototype = {
     return this.each((el) => {
       if (el) el.classList.add(className); return $(el)
     }),
-  }
+  },
   removeClass (className) {
     return this.each((el) => {
       if (el) el.classList.remove(className); return $(el)
