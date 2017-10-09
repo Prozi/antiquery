@@ -29,7 +29,7 @@ AntiQuery.prototype = {
   addClass (className) {
     return this.each(function (el) {
       if (el) el.classList.add(className); return $(el)
-    }),
+    })
   },
   removeClass (className) {
     return this.each(function (el) {

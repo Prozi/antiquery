@@ -43,20 +43,20 @@ $('div.golden')
 * what document.querySelector supports (a lot in current browsers)
 * chaining next methods
 * methods:
-  * get (index? or returns all)
-  * each (fn)
+  * get (index: Number? or returns all)
+  * each (fn: Function)
   * parents
   * children
   * find
   * remove
-  * addClass ('string')
-  * removeClass ('string')
-  * css ({})
+  * addClass (className: String)
+  * removeClass (className: String)
+  * css (css: Object)
   * hide
   * show
-  * text (text)
-  * html (html)
-  * animate (class, ms)
+  * text (text: String)
+  * html (html: String)
+  * animate (className: String, ms: Number)
 
 animate adds css class for duration of ms
 

@@ -26,7 +26,7 @@ export class AntiQuery {
   addClass (className) {
     return this.each((el) => {
       if (el) el.classList.add(className); return $(el)
-    }),
+    })
   },
   removeClass (className) {
     return this.each((el) => {
