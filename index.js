@@ -1,3 +1,7 @@
+const flatten = list => list.reduce(
+  (a, b) => a.concat(Array.isArray(b) ? flatten(b) : b), []
+);
+
 export class AntiQuery {
   constructor (selector) {
     this.elements = typeof selector === 'string' ?
@@ -9,7 +13,7 @@ export class AntiQuery {
     return this.elements
   },
   each (fn) {
-    return this.elements.map.apply(this, fn)
+    return flatten(this.elements.map.apply(this, fn))
   },
   parents () {
     return this.each((el) => $(el.parentElement))

@@ -1,3 +1,9 @@
+var flatten = function flatten(list) {
+    return list.reduce(function (a, b) {
+        return a.concat(Array.isArray(b) ? flatten(b) : b);
+    }, []);
+};
+
 export function AntiQuery (selector) {
   this.elements = typeof selector === 'string' ?
     Array.prototype.slice.call(document.querySelectorAll(selector)) :
@@ -10,7 +16,7 @@ AntiQuery.prototype = {
     return this.elements
   },
   each (fn) {
-    return this.elements.map.apply(this, fn)
+    return flatten(this.elements.map.apply(this, fn))
   },
   parents () {
     return this.each((el) => $(el.parentElement))
