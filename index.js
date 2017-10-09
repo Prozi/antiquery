@@ -13,7 +13,7 @@ export class AntiQuery {
     return this.elements
   },
   each (fn) {
-    return flatten(this.elements.map.apply(this, fn))
+    return flatten(this.elements.map.call(this.elements, fn))
   },
   parents () {
     return this.each((el) => $(el.parentElement))
