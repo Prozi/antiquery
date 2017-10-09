@@ -22,42 +22,32 @@
       return this.elements
     },
     each (fn) {
-      var result = flatten(this.elements.map.call(this.elements, fn))
-      if (result.length === 1) {
-        return result[0]
-      }
-      return result
+      this.elements.forEach.call(this.elements, fn)
+      return this
     },
     parents () {
-      return this.each((el) => $(el.parentElement))
+      return $(this.elements.map(function (el) { return el.parentElement }))
     },
     children () {
-      return this.each((el) => el.children.map($))
+      return $(flatten(this.elements.map(function (el) { return el.children })))
     },
     find (what) {
-      return this.each((el) => $(el.querySelectorAll(what)))
+      return $(flatten(this.elements.map(function (el) { return el.querySelectorAll(what) })))
     },
     remove () {
-      this.elements.forEach((el) => el.parentElement.removeChild(el))
+      this.elements.forEach(function (el) { el.parentElement.removeChild(el) })
     },
     addClass (className) {
-      return this.each((el) => {
-        el.classList.add(className)
-        return $(el)
-      })
+      return this.each(function (el) { el.classList.add(className) })
     },
     removeClass (className) {
-      return this.each((el) => {
-        el.classList.remove(className)
-        return $(el)
-      })
+      return this.each(function (el) { el.classList.remove(className) })
     },
     css (css) {
-      return this.each((el) => {
-        Object.keys(css).forEach((prop) => {
-          el.style[prop] = css[prop];        
+      return this.each(function (el) {
+        Object.keys(css).forEach(function (prop) {
+          el.style[prop] = css[prop]
         })
-        return $(el)
       })
     },
     hide () {
@@ -67,22 +57,22 @@
       return this.css({ display: null })
     },
     text (text) {
-      return this.each((el) => {
+      return this.each(function (el) {
         el.textContent = text
-        return $(el)
       })
     },
     html (html) {
-      return this.each((el) => {
+      return this.each(function (el) {
         el.innerHTML = html
-        return $(el)
       })
     },
     animate (animation, duration = 250) {
-      return this.each((el) => {
-        setTimeout(() => $(el).removeClass(animation), duration)
-        return $(el).addClass(animation)
+      this.each(function (el) { 
+        setTimeout(function () {
+          $(el).removeClass(animation)
+        }, duration)
       })
+      return this.addClass(animation)
     }
   }
 

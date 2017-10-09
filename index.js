@@ -16,43 +16,31 @@ export class AntiQuery {
     return this.elements
   },
   each (fn) {
-    const result = flatten(this.elements.map.call(this.elements, fn))
-    if (result.length === 1) {
-      return result[0]
-    }
-    return result
+    this.elements.forEach.call(this.elements, fn)
+    return this
   },
   parents () {
-    return this.each((el) => $(el.parentElement))
+    return $(this.elements.map((el) => el.parentElement))
   },
   children () {
-    return this.each((el) => el.children.map($))
+    return $(flatten(this.elements.map((el) => el.children)))
   },
   find (what) {
-    return this.each((el) => $(el.querySelectorAll(what)))
+    return $(flatten(this.elements.map((el) => el.querySelectorAll(what))))
   },
   remove () {
     this.elements.forEach((el) => el.parentElement.removeChild(el))
   },
   addClass (className) {
-    return this.each((el) => {
-      el.classList.add(className)
-      return $(el)
-    })
+    return this.each((el) => el.classList.add(className))
   },
   removeClass (className) {
-    return this.each((el) => {
-      el.classList.remove(className)
-      return $(el)
-    })
+    return this.each((el) => el.classList.remove(className))
   },
   css (css) {
-    return this.each((el) => {
-      Object.keys(css).forEach((prop) => {
-        el.style[prop] = css[prop];        
-      })
-      return $(el)
-    })
+    return this.each((el) => Object.keys(css).forEach((prop) => {
+      el.style[prop] = css[prop]
+    }))
   },
   hide () {
     return this.css({ display: 'none' })
@@ -61,22 +49,18 @@ export class AntiQuery {
     return this.css({ display: null })
   },
   text (text) {
-    return this.each((el) => {
+    return this.each((el) =>
       el.textContent = text
-      return $(el)
     })
   },
   html (html) {
     return this.each((el) => {
       el.innerHTML = html
-      return $(el)
     })
   },
   animate (animation, duration = 250) {
-    return this.each((el) => {
-      setTimeout(() => $(el).removeClass(animation), duration)
-      return $(el).addClass(animation)
-    })
+    this.each((el) => setTimeout(() => $(el).removeClass(animation), duration))
+    return this.addClass(animation)
   }
 }
 
