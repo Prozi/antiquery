@@ -2,10 +2,10 @@ export class AntiQuery {
   constructor (selector) {
     this.elements = typeof selector === 'string' ?
       Array.prototype.slice.call(document.querySelectorAll(selector)) :
-      Array.isArray(selector) ? (selector ? selector : []) : [selector]
+      Array.isArray(selector) ? selector : (selector ? [selector] : [])
   },
   get (index) {
-    if (typeof index !== 'undefined') return this.elements[index]
+    if (!isNaN(index) && isFinite(index)) return this.elements[index]
     return this.elements
   },
   each (fn) {
@@ -18,19 +18,21 @@ export class AntiQuery {
     return this.each((el) => el.children.map($))
   },
   find (what) {
-    return this.each((el) => $(what))
+    return this.each((el) => $(el.querySelectorAll(what)))
   },
   remove () {
     this.elements.forEach((el) => el.parentElement.removeChild(el))
   },
   addClass (className) {
     return this.each((el) => {
-      if (el) el.classList.add(className); return $(el)
+      el.classList.add(className)
+      return $(el)
     })
   },
   removeClass (className) {
     return this.each((el) => {
-      if (el) el.classList.remove(className); return $(el)
+      el.classList.remove(className)
+      return $(el)
     })
   },
   css (css) {
@@ -49,12 +51,14 @@ export class AntiQuery {
   },
   text (text) {
     return this.each((el) => {
-      if (el) el.textContent = text; return $(el)
+      el.textContent = text
+      return $(el)
     })
   },
   html (html) {
     return this.each((el) => {
-      if (el) el.innerHTML = html; return $(el)
+      el.innerHTML = html
+      return $(el)
     })
   },
   animate (animation, duration = 250) {
