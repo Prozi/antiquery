@@ -8,6 +8,9 @@
   };
 
   function AntiQuery (selector) {
+    if (selector instanceof AntiQuery) {
+      return selector
+    }
     this.elements = typeof selector === 'string' ?
       Array.prototype.slice.call(document.querySelectorAll(selector)) :
       Array.isArray(selector) ? selector : (selector ? [selector] : [])
@@ -19,7 +22,11 @@
       return this.elements
     },
     each (fn) {
-      return flatten(this.elements.map.call(this.elements, fn))
+      var result = flatten(this.elements.map.call(this.elements, fn))
+      if (result.length === 1) {
+        return result[0]
+      }
+      return result
     },
     parents () {
       return this.each((el) => $(el.parentElement))
@@ -47,7 +54,7 @@
     },
     css (css) {
       return this.each((el) => {
-        if (el) Object.keys(css).forEach((prop) => {
+        Object.keys(css).forEach((prop) => {
           el.style[prop] = css[prop];        
         })
         return $(el)
