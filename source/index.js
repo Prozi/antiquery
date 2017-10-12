@@ -64,7 +64,10 @@ class AntiQuery {
   }
 }
 
-module.exports.AntiQuery = AntiQuery
-module.exports.default = function $(selector) {
+function $(selector) {
   return new AntiQuery(selector)
 }
+
+module.exports.AntiQuery = AntiQuery
+module.exports.default = $
+module.exports.flattenArray = flatten
