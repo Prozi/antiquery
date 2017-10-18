@@ -8,7 +8,13 @@ this is DOM manipulation language
 
 ## Installation
 
-install by typing `yarn add antiquery --save # or npm install antiquery --save`
+install by typing
+
+```bash
+yarn add antiquery --save
+# or 
+npm install antiquery --save
+```
 
 ## What is the usage
 
@@ -28,7 +34,7 @@ const $ = require('antiquery/es2015').default // es5
 const $ = require('antiquery/source').default // es6
 ```
 
-for browser download browser/index.js and then just include as script src
+for browser just use with webpack/backpack dont just include as one of 100's script src's like in 20'th century
 
 ...
 
@@ -67,7 +73,7 @@ animate adds css class for duration of ms
 
 ## Enjoy
 
-by Jacek Pietal (github.com/Prozi)
+by Jacek Pietal [github.com/Prozi](https://github.com/Prozi)
 
 ## License
 
