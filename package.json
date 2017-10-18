@@ -1,10 +1,10 @@
 {
   "name": "antiquery",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "description": "a *very* slim package for basic DOM operations - few bytes",
   "main": "index.js",
   "scripts": {
-    "compile": "babel ./source --out-dir ./es2015 --presets es2015"
+    "compile": "node_modules/.bin/babel ./source --out-dir ./es2015 --presets es2015"
   },
   "repository": {
     "type": "git",
