@@ -20,7 +20,7 @@ import $ from 'antiquery'
 
 for older javascript use:
 ```javascript
-const $ = require('antiquery').default
+const $ = require('antiquery/es2015').default
 ```
 
 for browser download browser/index.js and then just include as script src
