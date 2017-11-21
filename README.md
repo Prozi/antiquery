@@ -1,6 +1,6 @@
 ## Anti-Query
 
-You dont need any Big-Ass-Query that weights about 50KB, this library is enough for your needs (propably)
+You dont need any Big-Ass-Query that weights about 50KB, this library is enough for your needs (probably)
 
 ## Whats this
 
