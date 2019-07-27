@@ -26,12 +26,11 @@ import $ from 'antiquery'
 
 for older javascript use:
 ```javascript
-const $ = require('antiquery').default
+// es2015 compiled with babel
+const $ = require('antiquery/es2015').default
 
-// or thanks to editions
-const $ = require('antiquery/es2015').default // es2015 compiled with babel
-// or
-const $ = require('antiquery').default // es6
+// es6
+const $ = require('antiquery').default
 ```
 
 for browser just use with webpack/backpack dont just include as one of 100's script src's like in 20'th century
