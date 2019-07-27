@@ -1,6 +1,6 @@
 {
   "name": "antiquery",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "a *very* slim package for basic DOM operations - few bytes",
   "main": "es6/index.js",
   "scripts": {
